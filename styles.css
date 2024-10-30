@@ -1,0 +1,124 @@
+/* Created by Tivotal */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(#333, #000);
+  color: #fff;
+}
+
+.wrapper {
+  height: 60vh;
+  width: 30vw;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  perspective: 1000px;
+}
+
+.cube {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: rotateY(30deg);
+  top: 100px;
+  left: 100px;
+}
+
+.face {
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  padding: 100px 0;
+  background: var(--bg);
+  border: 2px solid #fff;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  transition: 0.3s;
+}
+
+.left {
+  right: 125px;
+  transform: rotateY(-90deg);
+}
+
+.right {
+  left: 125px;
+  transform: rotateY(90deg);
+}
+
+.top {
+  bottom: 125px;
+  transform: rotateX(90deg);
+}
+
+.bottom {
+  top: 125px;
+  transform: rotateX(-90deg);
+}
+
+.front {
+  transform: translateZ(125px);
+}
+
+.back {
+  transform: translateZ(-125px);
+}
+
+.cube {
+  animation: anim 3s infinite;
+}
+
+@keyframes anim {
+  0% {
+    transform: rotateX(45deg) rotateY(-45deg);
+  }
+  25% {
+    transform: rotateX(-45deg) rotateY(45deg);
+  }
+  50% {
+    transform: rotateX(45deg) rotateY(45deg);
+  }
+  75% {
+    transform: rotateX(-45deg) rotateY(-45deg);
+  }
+  100% {
+    transform: rotateX(45deg) rotateY(-45deg);
+  }
+}
+
+.cube:hover .front {
+  transform: translateZ(180px) rotateY(360deg);
+}
+
+.cube:hover .back {
+  transform: translateZ(-180px) rotateY(360deg);
+}
+
+.cube:hover .left {
+  right: 180px;
+}
+
+.cube:hover .right {
+  left: 180px;
+}
+
+.cube:hover .top {
+  bottom: 180px;
+}
+
+.cube:hover .bottom {
+  top: 180px;
+}
